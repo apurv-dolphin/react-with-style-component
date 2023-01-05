@@ -6,7 +6,6 @@ import { Button } from "./styles/Button";
 
 const Services = () => {
   const { services } = useGlobalContext();
-  console.log(services);
 
   return (
     <Wrapper className="section">
@@ -78,7 +77,7 @@ const Wrapper = styled.section`
     align-items: center;
     position: relative;
     overflow: hidden;
-    transition: all 0.5s linear;
+    transition: all 1s linear;
     &::after {
       content: "";
       position: absolute;
