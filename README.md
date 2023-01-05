@@ -1,5 +1,8 @@
 # react-with-style-component
 
+TO start the service run this command:-
+npm run dev
+
 to run this project properly install below dependency:-
 
 for routing:-
