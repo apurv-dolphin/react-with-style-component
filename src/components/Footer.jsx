@@ -57,7 +57,7 @@ const Footer = () => {
               </div>
               <div>
                 <a
-                  href="https://www.youtube.com/channel/UCwfaAHy4zQUb2APNOGXUCCA"
+                  href="https://www.youtube.com/"
                   target="_blank">
                   <FaYoutube className="icons" />
                 </a>
@@ -77,9 +77,9 @@ const Footer = () => {
           <hr />
           <div className="container grid grid-two-column">
             <p>
-              @{new Date().getFullYear()} ApurvKhalas. All Rights Reserved
+              @{new Date().getFullYear()} Apurv Khalas. All Rights Reserved
             </p>
-            <div>
+            <div style={{display: "flex" , justifyContent: "space-evenly"}}>
               <p>PRIVACY POLICY</p>
               <p>TERMS & CONDITIONS</p>
             </div>

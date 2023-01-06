@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import styled from "styled-components";
 import { useGlobalContext } from "./context";
 import { NavLink } from "react-router-dom";
 import { Button } from "./styles/Button";
+import { FcAbout } from "react-icons/fc";
 
 const Services = () => {
   const { services } = useGlobalContext();
+  const [names, setNames] = useState("");
+  const [show, setShow] = useState(false);
+  const target = useRef(null);
+
+
+  const handleInfo = (name) => {
+    setNames(name);
+    setShow(!show);
+  };
 
   return (
     <Wrapper className="section">
@@ -22,9 +32,22 @@ const Services = () => {
                 <h3>{name}</h3>
                 <p>Price:- {price}$</p>
                 <p>Category:- {category}</p>
-                <NavLink to="/service">
-                  <Button className="btn">Read More</Button>
-                </NavLink>
+                <div className="cart-button">
+                  <NavLink to="/service">
+                    <Button className="btn">Read More</Button>
+                  </NavLink>
+                  <p>
+                    <FcAbout
+                      className="cart-infoicon"
+                      onClick={() => handleInfo(name)}
+                    />
+                  </p>
+                  {name === names && show &&
+                    <div>
+                      {names}
+                    </div>
+                  }
+                </div>
               </div>
             </div>
           );
@@ -46,6 +69,15 @@ const Wrapper = styled.section`
     border: 0.1rem solid rgb(170 170 170 / 40%);
     .card-data {
       padding: 0 2rem;
+    }
+    .cart-button {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+    }
+    .cart-infoicon {
+      font-size: xx-large;
+      cursor: pointer;
     }
 
     h3 {
