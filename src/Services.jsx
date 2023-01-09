@@ -8,13 +8,13 @@ import { FcAbout } from "react-icons/fc";
 const Services = () => {
   const { services } = useGlobalContext();
   const [names, setNames] = useState("");
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(0);
   const target = useRef(null);
 
 
-  const handleInfo = (name) => {
+  const handleInfo = (name , id) => {
     setNames(name);
-    setShow(!show);
+    setShow(id);
   };
 
   return (
@@ -39,7 +39,8 @@ const Services = () => {
                   <p>
                     <FcAbout
                       className="cart-infoicon"
-                      onClick={() => handleInfo(name)}
+                      isActive={show === id}
+                      onClick={() => handleInfo(name , id)}
                     />
                   </p>
                   {name === names && show &&
